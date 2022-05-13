@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation, :store_name)
+        params.require(:user).permit(:email, :password, :password_confirmation, :store)
     end
 
     def authenticate_admin
