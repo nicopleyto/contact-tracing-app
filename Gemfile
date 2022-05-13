@@ -56,3 +56,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.8"
+
+#Heroku deployment fix for Ruby 3.1.0
+gem 'net-smtp', require: false
+gem 'net-pop', require: false
+gem 'net-imap', require: false
