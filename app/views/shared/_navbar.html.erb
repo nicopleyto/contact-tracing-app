@@ -14,18 +14,14 @@
 
         <% if user_signed_in? %>
             <%= link_to destroy_user_session_path, method: :delete do %>
-                <div class="inline-flex items-center py-1 px-3 focus:outline-none cursor-pointer hover:text-gray-900 font-semibold mt-4 md:mt-0">Logout
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
+                <div class="inline-flex items-center py-1 px-3 focus:outline-none cursor-pointer hover:text-gray-900 font-semibold mt-4 md:mt-0">
+                    Logout<i class="bi bi-arrow-right ml-1"></i>
                 </div>
             <% end %>
         <% else %>
             <%= link_to new_user_session_path do %>
-                <div class="inline-flex items-center py-1 px-3 focus:outline-none cursor-pointer hover:text-gray-900 font-semibold mt-4 md:mt-0">Admin
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
+                <div class="inline-flex items-center py-1 px-3 focus:outline-none cursor-pointer hover:text-gray-900 font-semibold mt-4 md:mt-0">
+                    Admin<i class="bi bi-arrow-right ml-1"></i>
                 </div>
             <% end %>
         <% end %>
