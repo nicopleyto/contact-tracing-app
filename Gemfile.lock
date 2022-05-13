@@ -92,9 +92,6 @@ GEM
       activesupport (>= 5.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -107,9 +104,13 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.5.1)
     nio4r (2.5.8)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -215,6 +216,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  ruby
   x86_64-darwin-19
 
 DEPENDENCIES
@@ -222,7 +224,6 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.8)
-  jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
