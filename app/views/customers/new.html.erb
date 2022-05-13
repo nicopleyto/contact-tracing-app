@@ -1,4 +1,4 @@
-<h1 class="sm:text-5xl text-4xl mb-4 font-bold text-gray-900">New Customer</h1>
+<h1 class="text-3xl mb-4 font-bold text-gray-900">COVID-19 Contact Tracing Form</h1>
 
 <%= form_with(model: @customer) do |form| %>
   <% if @customer.errors.any? %>
@@ -25,13 +25,10 @@
 
   <div class="field">
     <%= form.label :mobile_number %>
-    <%= form.number_field :mobile_number %>
+    <%= form.telephone_field :mobile_number %>
   </div>
 
   <div class="actions">
-    <%= form.submit "submit" %>
+    <%= form.submit "Submit" %>
   </div>
 <% end %>
-
-
-<%= link_to 'Back', customers_path %>

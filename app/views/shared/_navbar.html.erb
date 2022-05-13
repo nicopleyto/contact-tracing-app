@@ -1,0 +1,33 @@
+<header>
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <nav class="md:ml-auto md:py-1 md:pl-4 flex flex-wrap items-center text-base justify-center">
+            <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                    <%= link_to "Visitors", admin_index_path, class: "mr-5 font-semibold hover:text-gray-900 cursor-pointer" %>
+                    <%= link_to "Users", users_path, class: "mr-5 font-semibold hover:text-gray-900 cursor-pointer" %>
+                    <%= link_to "Add User", new_user_path, class: "mr-5 font-semibold hover:text-gray-900 cursor-pointer" %>
+                <% else %>
+                    <%= link_to "Customers", customers_path, class: "mr-5 font-semibold hover:text-gray-900 cursor-pointer" %>
+                <% end %>
+            <% end %>
+        </nav>
+
+        <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+                <div class="inline-flex items-center py-1 px-3 focus:outline-none cursor-pointer hover:text-gray-900 font-semibold mt-4 md:mt-0">Logout
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+                </div>
+            <% end %>
+        <% else %>
+            <%= link_to new_user_session_path do %>
+                <div class="inline-flex items-center py-1 px-3 focus:outline-none cursor-pointer hover:text-gray-900 font-semibold mt-4 md:mt-0">Admin
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</header>
