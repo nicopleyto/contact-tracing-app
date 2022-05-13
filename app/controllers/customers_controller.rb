@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :set_custom_create, only: [:create]
   before_action :authenticate_admin, only: [:admin_index]
 
@@ -21,7 +21,7 @@ class CustomersController < ApplicationController
 
   def create
     if @customer.save
-      redirect_to @customer, notice: 'Customer was successfully created.'
+      redirect_to root_path, notice: 'Customer was successfully created.'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class CustomersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def customer_params
-    params.require(:customer).permit(:name, :email, :mobile_number, :store_name)
+    params.require(:customer).permit(:name, :email, :mobile_number, :store_visited)
   end
 
   def set_custom_create
@@ -43,7 +43,7 @@ class CustomersController < ApplicationController
   end
 
   def authenticate_admin
-    if current_user.admin?
+    if user_signed_in? && current_user.admin?
       return
     else
       redirect_to root_path, notice: "You must be an admin to perform this action."
