@@ -4,4 +4,5 @@ class Customer < ApplicationRecord
     validates :email, presence: true
     validates :mobile_number, presence: true
     validates :store, presence: true
+    validates :agreement, acceptance: {accept: true}, on: :create, allow_nil: false
 end
