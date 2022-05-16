@@ -1,34 +1,54 @@
-<h1 class="text-3xl mb-4 font-bold text-gray-900">COVID-19 Contact Tracing Form</h1>
+<div class="mx-auto shrink px-5">
+    <div class="bg-white mx-auto shrink max-w-lg border space-y-5 p-5 rounded-xl shadow-md">
 
-<%= form_with(model: @customer) do |form| %>
-  <% if @customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+        <h1 class="text-3xl text-center font-bold text-gray-900">COVID-19 Contact Tracing Form</h1>
 
-      <ul>
-        <% @customer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <%= form_with(model: @customer) do |form| %>
+        <% if @customer.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+            <ul>
+                <% @customer.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+            </div>
         <% end %>
-      </ul>
+
+        <%= render 'shared/prevent-epidemic' %>
+
+        <div class="field">
+            <%= form.label :name, class: "block text-md font-bold text-gray-900 mt-3" %>
+            <%= form.email_field :name, class: "shadow-sm mt-1 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-green-600" %>
+        </div>
+
+        <div class="field">
+            <%= form.label :email, class: "block text-md font-bold text-gray-900 mt-3" %>
+            <%= form.text_field :email, class: "shadow-sm mt-1 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-green-600" %>
+        </div>
+
+        <div class="field">
+            <%= form.label :mobile_number, class: "block text-md font-bold text-gray-900 mt-3" %>
+            <%= form.telephone_field :mobile_number, class: "shadow-sm mt-1 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-green-600" %>
+        </div>
+
+        <div class="field">
+            <%= form.label :store, "Entrance", class: "block text-md font-bold text-gray-900 mt-3" %>
+            <%= form.collection_select :store, User.all, :id, :store, {}, {class: "shadow-sm mt-1 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-green-600"} %>
+        </div>
+
+        <div class="field mt-3">
+          <%= form.check_box :agreement %>
+          <%= form.label :agreement, "I hereby acknowledge that I do not have the following symptoms: 
+          headache, loss of taste and smell, sore throat, fever, shortness of breath, persistent cough, and unusual body aches.
+          Neither have I been in contact with anyone who has tested positive for Covid-19 or anyone who has been experiencing said symptoms within 14 days.",
+          class: "ml-1 text-sm" %>
+        </div>
+
+        <div class="actions mt-6">
+            <%= form.submit "Submit", class: "cursor-pointer inline-flex px-5 py-2 rounded-xl bg-green-500 text-white font-bold shadow-md hover:bg-green-600" %>
+        </div>
+        <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mobile_number %>
-    <%= form.telephone_field :mobile_number %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Submit" %>
-  </div>
-<% end %>
+</div>
