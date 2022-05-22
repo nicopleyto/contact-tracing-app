@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :customers
-  resources :users, only: [:index, :new, :create, :edit, :update, :destroy] #explicitly add routes for user to prevent conflict with devise routes
   devise_for :users, skip: :registration
+  resources :users, only: [:index, :new, :create, :edit, :update, :destroy] #explicitly add routes for user to prevent conflict with devise routes
 
   get 'admin_index', to: 'customers#admin_index'
   root 'customers#new'
