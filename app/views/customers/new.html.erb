@@ -34,8 +34,9 @@
         </div>
 
         <div class="field">
-            <%= form.label :store, "Entrance", class: "block text-md font-bold text-gray-900 mt-3" %>
-            <%= form.collection_select :store, User.all, :id, :store, {}, {class: "shadow-sm mt-1 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-green-600"} %>
+            <%= form.label :user_id, "Entrance", class: "block text-md font-bold text-gray-900 mt-3" %>
+            <%= form.collection_select :user_id, User.all, :id, :store, {selected: @customer.user_id}, {class: "shadow-sm mt-1 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-green-600"} %>
+            <%#= form.select :user_id, User.all.map{|user|[user.store, user.id]}, {selected: @customer.user_id}, {class: 'shadow-sm mt-1 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-green-600' } %>
         </div>
 
         <div class="field mt-3">

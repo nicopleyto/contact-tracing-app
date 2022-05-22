@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   before_action :authenticate_admin, only: [:admin_index]
 
   def admin_index
-    @customers = Customer.all
+    @customers = Customer.includes(:user).all
   end
 
   def index
@@ -31,7 +31,7 @@ class CustomersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def customer_params
-    params.require(:customer).permit(:name, :email, :mobile_number, :store, :agreement)
+    params.require(:customer).permit(:name, :email, :mobile_number, :user_id, :agreement)
   end
 
   def set_custom_create
