@@ -6,16 +6,19 @@
             <thead class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Visitor name
+                        Visitor
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Email
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Mobile number
+                        Mobile
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Store
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Time
                     </th>
                     <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Edit</span>
@@ -37,6 +40,9 @@
                     </td>
                     <td class="px-6 py-4">
                         <%= customer.user.store %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= customer.created_at %>
                     </td>
                     <td class="px-6 py-4 text-right">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
